@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "mmiotkug/jenkins-docker-test"
-        DOCKER_PWD = credentials('docker-login-pwd')
+        DOCKERHUB_CREDENTIALS = credentials('docker-login-pwd')
     }
     agent {
         docker {
@@ -28,7 +28,7 @@ pipeline {
         stage("Build & Push Docker image") {
             steps {
                 sh 'docker image build -t $registry:$BUILD_NUMBER .'
-                sh 'docker login -u mmiotkug -p $DOCKER_PWD'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u mmiotkug --password-stdin'
                 sh 'docker image push $registry:$BUILD_NUMBER'
                 sh "docker image rm $registry:$BUILD_NUMBER"
             }
