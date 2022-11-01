@@ -35,6 +35,7 @@ pipeline {
         }
         stage('Deploy and smoke test') {
             steps{
+                sh 'chmod +x ./jenkins/scripts/*.sh'
                 sh './jenkins/scripts/deploy.sh'
             }
         }
