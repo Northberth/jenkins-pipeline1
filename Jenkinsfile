@@ -39,5 +39,10 @@ pipeline {
                 sh './jenkins/scripts/deploy.sh'
             }
         }
+        stage('Cleanup') {
+            steps{
+                sh './jenkins/scripts/cleanup.sh'
+            }
+        }
     }
 }
