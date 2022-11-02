@@ -10,7 +10,7 @@ exports.getHobby = id => {
     return hobbies[id-1];
 }
 exports.getReverseHobbies = () => {
-    const index = hobbies.reverse();
+    const index = [...hobbies].reverse();
     return index;
 }
 exports.findHobby = name => {
