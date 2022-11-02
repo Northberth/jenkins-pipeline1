@@ -9,3 +9,9 @@ exports.getHobby = id => {
         return null;
     return hobbies[id-1];
 }
+exports.getReverseHobbies = () => {
+    return hobbies.reverse();
+}
+exports.findHobby = name => {
+    return hobbies.includes(name);
+}
