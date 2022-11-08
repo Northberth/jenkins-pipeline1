@@ -9,32 +9,16 @@ describe("API unit test suite", () => {
             expect(list[0]).toBe("jogging");
         });
     })
-    describe("getReverseHobbies", () => {
-        const list = hobbies.getReverseHobbies();
-        it("returns 5 hobbies", () => {
-            expect(list.length).toEqual(5);
-        });
-        it("returns 'reading' as first hobby", () => {
-            expect(list[0]).toBe("reading");
-        });
-    })
-    describe("getHobby", () => {
-        const list = hobbies.getHobby(2);
+    describe("sortHobbies", () => {
+        const list = hobbies.sortHobbies();
         it("returns 'cooking'", () => {
-            expect(list).toBe("cooking");
+            expect(list[0]).toBe("cooking");
         });
     })
-    describe("find hobby", () => {
-        const list = hobbies.findHobby("swimming");
-        it("returns 'true'", () => {
-            expect(list).toBe(true);
+    describe("lengthHobbies", () => {
+        const list = hobbies.lengthHobbies();
+        it("returns '5'", () => {
+            expect(list).toBe(5);
         });
     })
-        describe("dont find hobby", () => {
-        const list = hobbies.findHobby("judo");
-        it("returns 'false'", () => {
-            expect(list).toBe(false);
-        });
-    })
-
 })
