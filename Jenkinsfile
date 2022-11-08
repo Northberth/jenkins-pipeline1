@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "leshens/jenkins-docker-test"
+        registry = "northberth/jenkins-docker-test"
         DOCKERHUB_CREDENTIALS = credentials(1)
     }
     agent {
@@ -28,7 +28,7 @@ pipeline {
         stage("Build & Push Docker image") {
             steps {
                 sh 'docker image build -t $registry:$BUILD_NUMBER .'
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u leshens --password-stdin'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u northberth --password-stdin'
                 sh 'docker image push $registry:$BUILD_NUMBER'
                 sh "docker image rm $registry:$BUILD_NUMBER"
             }
